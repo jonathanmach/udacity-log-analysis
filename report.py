@@ -24,7 +24,8 @@ cur.execute(
 rows = cur.fetchall()
 
 for title, views in rows:
-    print('"%s" — %s views' % (title, views))
+    #print('"%s" — %s views' % (title, views))
+    print("\"{}\" — {} views".format(title, views))
     # Example: "Princess Shellfish Marries Prince Handsome" — 1201 views
 print("")
 
@@ -44,8 +45,8 @@ cur.execute(
     group by name
     order by total_views desc;""")
 rows = cur.fetchall()
-for row in rows:
-    print('%s — %s views' % (row[0], row[1]))
+for author, views in rows:
+    print('%s — %s views' % (author, views))
     # Example: Ursula La Multa — 2304 views
 print("")
 

@@ -1,3 +1,4 @@
+vagrant@vagrant:/vagrant$ python report.py
 Logs Analysis Project - by Jonathan Machado
 
 1. What are the most popular three articles of all time?
@@ -15,4 +16,4 @@ Markoff Chaney — 84557 views
 
 3. On which days did more than 1% of requests lead to errors?
 
-July      17, 2016 — 2.26
+July 17, 2016 — 2.26% errors

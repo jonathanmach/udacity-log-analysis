@@ -15,11 +15,12 @@ cur = conn.cursor()
 print("1. What are the most popular three articles of all time?")
 print("")
 cur.execute(
-    """select a.title, count(*) as views
+    """
+    SELECT a.title, count(*) AS views
     FROM log l
-    INNER JOIN articles a on (replace(path, '/article/', '') = a.slug)
+    INNER JOIN articles a ON (path = '/article/' || a.slug)
     GROUP BY a.title
-    ORDER BY views desc
+    ORDER BY views DESC
     LIMIT 3;""")
 rows = cur.fetchall()
 
@@ -34,16 +35,16 @@ print("2. Who are the most popular article authors of all time?")
 print("")
 
 cur.execute(
-    """select authors.name, sum (views) as total_views
-    from (
-        select a.title,l.path, a.author, count(*) as views
-        from log l
-        inner join articles a on (replace(path, '/article/', '') = a.slug)
-        group by l.path, a.title, a.author
-        order by views desc) as sub
-    join authors on sub.author = authors.id
-    group by name
-    order by total_views desc;""")
+    """
+  SELECT authors.name, views
+    FROM (
+        SELECT a.author, count(*) AS views
+        FROM log l
+        INNER JOIN articles a ON (path = '/article/' || a.slug)
+        GROUP BY a.author
+        ORDER BY views DESC) AS sub
+    JOIN authors ON sub.author = authors.id;
+""")
 rows = cur.fetchall()
 for author, views in rows:
     print('%s — %s views' % (author, views))

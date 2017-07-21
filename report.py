@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import psycopg2
@@ -14,10 +15,10 @@ cur = conn.cursor()
 print("1. What are the most popular three articles of all time?")
 print("")
 cur.execute(
-    """select a.title,l.path, a.author, count(*) as views
+    """select a.title, count(*) as views
     FROM log l
     INNER JOIN articles a on (replace(path, '/article/', '') = a.slug)
-    GROUP BY l.path, a.title, a.author
+    GROUP BY a.title
     ORDER BY views desc
     LIMIT 3;""")
 rows = cur.fetchall()

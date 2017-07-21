@@ -24,7 +24,7 @@ cur.execute(
 rows = cur.fetchall()
 
 for row in rows:
-    print ('"%s" — %s views' % (row[0], row[3]))
+    print('"%s" — %s views' % (row[0], row[3]))
     # Example: "Princess Shellfish Marries Prince Handsome" — 1201 views
 print("")
 
@@ -45,7 +45,7 @@ cur.execute(
     order by total_views desc;""")
 rows = cur.fetchall()
 for row in rows:
-    print ('%s — %s views' % (row[0], row[1]))
+    print('%s — %s views' % (row[0], row[1]))
     # Example: Ursula La Multa — 2304 views
 print("")
 

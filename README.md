@@ -5,10 +5,11 @@ The project involves creating a reporting tool that prints out reports (in plain
 
 
 ## Run the project
-* Run the report.py file.
+* Run the report.py file on the fullstack-nanodegree-vm-master virtual machine.
 * It will output the report in plain text.
 
 ## Other
-The bootstrap stylesheet has been updated to version: 3.3.7.
+The Python program will connect to the virtual machine Postgree SQL database and run 3 different queries in order to generate the report.
+
 ## Screenshot
 ![Alt text](https://raw.githubusercontent.com/jonathanfmachado/udacity-log-analysis/master/report_screenshot.png "Screenshot Sample")

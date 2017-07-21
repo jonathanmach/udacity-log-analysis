@@ -23,8 +23,8 @@ cur.execute(
     LIMIT 3;""")
 rows = cur.fetchall()
 
-for row in rows:
-    print('"%s" — %s views' % (row[0], row[3]))
+for title, views in rows:
+    print('"%s" — %s views' % (title, views))
     # Example: "Princess Shellfish Marries Prince Handsome" — 1201 views
 print("")
 
